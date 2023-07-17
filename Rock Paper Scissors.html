@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RockPaperScissors</title>
+<style type="text/css">
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+}
+body {
+	background-color:rgba(0,0,0,.9);
+}
+h1{
+	letter-spacing:1px;
+	font-size:70px;
+	font-family:sans-serif;
+	color:white;
+	margin-left:20px;
+	margin-top:50px;
+	position:fixed;
+}
+#rock {
+	position:fixed;
+	height:200x;
+	width:280px;
+	font-size:80px;
+	margin-top:200px;
+	margin-left:40px;
+	border-radius:50%;
+	border:2px solid white;
+	background:transparent;
+	text-align:center;
+}
+#paper{
+	position:fixed;
+	height:200x;
+	width:280px;
+	font-size:80px;
+	margin-top:200px;
+	margin-left:350px;
+	border-radius:50%;
+	border:2px solid white;
+	background:transparent;
+	text-align:center;
+}
+#scissors  {
+	position:fixed;
+	height:200x;
+	width:280px;
+	font-size:80px;
+	margin-top:200px;
+	margin-left:660px;
+	border-radius:50%;
+	border:2px solid white;
+	background:transparent;
+	text-align:center;
+}
+#result {
+	position:fixed;
+	margin-top:580px;
+	margin-left:50px;
+	font-size:45px;
+	font-weight:300;
+	background:transparent;
+	outline:none;
+	color:white;
+	border:none;
+}
+span{ 
+    position:fixed;
+	margin-top:670px;
+	margin-left:50px;
+	font-size:40px;
+	font-weight:600;
+	color:white;
+}
+span.you{
+	
+}
+span.robo {
+	margin-left:280px;
+	position:fixed;
+}
+#you {
+	position:fixed;
+	margin-top:665px;
+	margin-left:-60px;
+	width:60px;
+	font-size:50px;
+	background:transparent;
+	border:none;
+	text-align:center;
+}
+#robo {
+	position:fixed;
+	margin-top:665px;
+	margin-left:10px;
+	width:60px;
+	font-size:50px;
+	background:transparent;
+	border:none;
+}
+span.wins {
+	margin-top:850px;
+	font-size:25px;
+	opacity:.5;
+	position:fixed;
+}
+span.losses {
+	margin-top:850px;
+	font-size:25px;
+	opacity:.5;
+	margin-left:170px;
+	position:fixed;
+}
+span.ties {
+	margin-top:850px;
+	font-size:25px;
+	opacity:.5;
+	margin-left:310px;
+	position:fixed;
+}
+#win{
+	position:fixed;
+	margin-top:873px;
+	margin-left:-70px;
+	width:40px;
+	font-size:20px;
+	background:transparent;
+	border:none;
+	color:white;
+}
+#lose{
+	position:fixed;
+	margin-top:873px;
+	margin-left:70px;
+	width:40px;
+	font-size:20px;
+	background:transparent;
+	border:none;
+	color:white;
+}
+#tie{
+	position:fixed;
+	margin-top:873px;
+	margin-left:180px;
+	width:40px;
+	font-size:20px;
+	background:transparent;
+	border:none;
+	color:white;
+}
+#bx1 {
+	width:200px;
+	height:1px;
+	color:transparent;
+	background:transparent;
+	border:none;
+}
+input.btn{
+	position:fixed;
+	margin-top:910px;
+	margin-left:50px;
+	width:150px;
+	height:35px;
+	font-size:20px;
+}
+</style>
+</head>
+<body>
+	<h1>Rock Paper Scissors</h1> 
+	
+	<input type="button" class="btn" onclick="reset()" value="Reset Score" >
+	<button onclick="RandomNumber1()" id="rock" > &nbsp; <br> &#9994 <br> &nbsp;</button>
+	<button onclick="RandomNumber2()" id="paper" > &nbsp; <br> &#9995 <br> &nbsp;</button>
+	<button onclick="RandomNumber3()" id="scissors" > &nbsp; <br> &#9996 <br> &nbsp;</button>
+	<form name="form" >
+		<input type="text" disabled="disabled" name="bx1" id="bx1"  >
+		<input type="text" name="win" disabled="disabled" id="win" value="0" >
+		<input type="text" name="lose" disabled="disabled" id="lose" value="0" >
+		<input type="text" name="tie" disabled="disabled" id="tie" value="0" >
+		<input type="text" name="result" disabled="disabled" id="result"  >
+		<input type="text" name="you" disabled="disabled" id="you"  >
+		<input type="text" name="robo" disabled="disabled" id="robo"  >
+	</form>
+	
+	<span class="you" > You</span>
+	<span class="robo" >Computer</span>
+	<span class="wins" >Wins:</span>
+	<span class="losses" >Losses:</span>
+	<span class="ties" >Ties:</span>
+	
+	<script type="text/javascript">
+	
+		function RandomNumber1(){
+			document.form.you.value='\u270A';
+			
+			var robo,player=1;
+			const R=Math.random();
+			if(R>=0 && R<=(1/3)){
+				robo=1;
+			}else if(R>=(1/3) && R<=(2/3)){
+				robo=2;
+			}else{
+				robo=3;
+			}
+			
+			if(player===robo){
+				document.form.bx1.value="tie";
+				document.form.result.value="TIE MATCH.";
+				document.form.robo.value='\u270A';
+			}else if(robo===2){
+				document.form.bx1.value="lose";
+				document.form.result.value="YOU LOSE.";
+				document.form.robo.value='\u270B';
+			}else{
+				document.form.bx1.value="win";
+				document.form.result.value="YOU WIN.";
+				document.form.robo.value='\u270C';
+			}
+			
+			var A=document.form.bx1.value;
+			if(A=="win"){
+				var a=document.form.win.value;
+				var b=Number(a);
+				b+=1;
+				document.form.win.value=b;
+			}else if(A=="lose"){
+				var c=document.form.lose.value;
+				var d=Number(c);
+				d+=1;
+				document.form.lose.value=d;
+			}else if(A=="tie")
+			{
+				var e=document.form.tie.value;
+				var f=Number(e)
+				f+=1;
+				document.form.tie.value=f;
+			}
+		}
+
+		function RandomNumber2(){
+			document.form.you.value='\u270B';
+			var robo,player=2;
+			const R=Math.random();
+			if(R>=0 && R<=(1/3)){
+				robo=1;
+			}else if(R>=(1/3) && R<=(2/3)){
+				robo=2;
+			}else{
+				robo=3;
+			}
+			
+			if(player===robo){
+				document.form.bx1.value="tie";
+				document.form.result.value="TIE MATCH.";
+				document.form.robo.value='\u270B';
+			}else if(robo===1){
+				document.form.bx1.value="win";
+				document.form.result.value="YOU WIN.";
+				document.form.robo.value='\u270A';
+			}else{
+				document.form.bx1.value="lose";
+				document.form.result.value="YOU LOSE.";
+				document.form.robo.value='\u270C';
+			}
+			var A=document.form.bx1.value;
+			if(A=="win"){
+			var a=document.form.win.value;
+			var b=Number(a);
+			b+=1;
+			document.form.win.value=b;
+			}else if(A=="lose"){
+			var c=document.form.lose.value;
+			var d=Number(c);
+			d+=1;
+			document.form.lose.value=d;
+			}else if(A=="tie")
+			{
+			var e=document.form.tie.value;
+			var f=Number(e)
+			f+=1;
+			document.form.tie.value=f;
+			}
+			}
+		
+
+		function RandomNumber3(){
+		document.form.you.value='\u270C';
+			var robo,player=3;
+			const R=Math.random();
+			if(R>=0 && R<=(1/3)){
+				robo=1;
+			}else if(R>=(1/3) && R<=(2/3)){
+				robo=2;
+			}else{
+				robo=3;
+			}
+			
+			if(player===robo){
+				document.form.bx1.value="tie";
+				document.form.result.value="TIE MATCH.";
+				document.form.robo.value='\u270C';
+			}else if(robo===1){
+				document.form.bx1.value="lose";
+				document.form.result.value="YOU LOSE.";
+				document.form.robo.value='\u270A';
+			}else{
+				document.form.bx1.value="win";
+				document.form.result.value="YOU WIN.";
+				document.form.robo.value='\u270B';
+			}
+			var A=document.form.bx1.value;
+			if(A=="win"){
+			var a=document.form.win.value;
+			var b=Number(a);
+			b+=1;
+			document.form.win.value=b;
+			}else if(A=="lose"){
+			var c=document.form.lose.value;
+			var d=Number(c);
+			d+=1;
+			document.form.lose.value=d;
+			}else if(A=="tie")
+			{
+			var e=document.form.tie.value;
+			var f=Number(e)
+			f+=1;
+			document.form.tie.value=f;
+			}
+		}
+		function reset(){
+			document.form.win.value=0;
+			document.form.lose.value=0;
+			document.form.tie.value=0;
+		}
+		
+	</script>
+</body>
+</html>
